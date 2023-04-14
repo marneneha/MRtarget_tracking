@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  # turtlebot3
+  turtlebot3_description
 )
 find_package(roslaunch)
 foreach(dir config launch meshes urdf)

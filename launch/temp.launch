@@ -6,16 +6,16 @@
 	</include>
     <arg name ="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
     <!-- describe model of robot using a xacro file which will be same for all 4and will be passed as parameter to all four namespaces -->
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
     <!-- BEGIN ROBOT 1-->
     <group ns="turtlebot1">
     <!-- you can add tf for a particula robot here -->
         <arg name="init_pose" value="-x 1 -y 1 -z 0" />
         <arg name="robot_name" value="TurtleBot1"/>
+        <param name="/$(arg robot_name)/robot_description" command="$(find xacro)/xacro --inorder $(find mr_target_tracking)/urdf/turtlebot_with_sensor.urdf.xacro" />
         <!-- look why "/" is required before in this case -->
         <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        args="-urdf -model $(arg robot_name) -param /robot_description $(arg init_pose)"/>
+        args="-urdf -model $(arg robot_name) -param /$(arg robot_name)/robot_description $(arg init_pose)"/>
     </group>
 
     <!-- BEGIN ROBOT 2-->
@@ -24,9 +24,10 @@
         <!-- <arg name ="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/> -->
         <arg name="init_pose" value="-x 5 -y 2 -z 0" />
         <arg name="robot_name" value="TurtleBot2"/>
+        <param name="/$(arg robot_name)/robot_description" command="$(find xacro)/xacro --inorder $(find mr_target_tracking)/urdf/turtlebot_with_sensor.urdf.xacro" />
         <!-- look why "/" is required before in this case -->
         <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        args="-urdf -model $(arg robot_name) -param /robot_description $(arg init_pose)"/>
+        args="-urdf -model $(arg robot_name) -param /$(arg robot_name)/robot_description $(arg init_pose)"/>
     </group>
 
     <!-- BEGIN ROBOT 3-->
