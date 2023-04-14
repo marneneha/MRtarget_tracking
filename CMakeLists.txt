@@ -166,7 +166,7 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  src/mr_target_tracking_node.py
+  src/mr_target_tracking_node.py src/target_motion_predictor.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
