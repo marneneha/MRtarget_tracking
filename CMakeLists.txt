@@ -12,7 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   # turtlebot3
-  turtlebot3_description
+  # turtlebot3_description
 )
 find_package(roslaunch)
 foreach(dir config launch meshes urdf)
@@ -166,7 +166,7 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  src/mr_target_tracking_node.py src/target_motion_predictor.py
+  src/mr_target_tracking_node.py src/target_motion_predictor_node.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
