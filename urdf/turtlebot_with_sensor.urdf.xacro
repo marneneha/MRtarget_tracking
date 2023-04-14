@@ -43,13 +43,13 @@
     </gazebo>	
 
 <!--  Gazebo plugin for control here is already added for you -->
-<gazebo>
+<!-- <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
         <robotNamespace>/turtlebot</robotNamespace>
         <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         <legacyModeNS>true</legacyModeNS>
     </plugin>
-</gazebo>
+</gazebo> -->
 
 <!-- <link name="dummy_link">
     <pose> 0 0 0 0 0 0
